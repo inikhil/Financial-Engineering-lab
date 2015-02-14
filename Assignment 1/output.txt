@@ -1,0 +1,34 @@
+The value of Europenan call for M=1 is 2.46336686
+The value of Europenan put  for M=1 is 1.81606897
+The value of Europenan call for M=5 is 2.18324492
+The value of Europenan put  for M=5 is 1.53594704
+The value of Europenan call for M=10 is 2.12483539
+The value of Europenan put  for M=10 is 1.47753751
+The value of Europenan call for M=20 is 2.12958331
+The value of Europenan put  for M=20 is 1.48228543
+The value of Europenan call for M=50 is 2.12721517
+The value of Europenan put  for M=50 is 1.47991728
+The value of Europenan call for M=100 is 2.12366674
+The value of Europenan put  for M=100 is 1.47636886
+The value of Europenan call for M=200 is 2.12020950
+The value of Europenan put  for M=200 is 1.47291161
+The value of Europenan call for M=400 is 2.12006478
+The value of Europenan put  for M=400 is 1.47276689
+
+
+
+
+ for European call option
+The value of at state time = 0.000000 is 2.12958331 
+The value of at state time = 0.300000 is 3.72475024 1.99916798 0.94923909 
+The value of at state time = 0.750000 is 7.74065626 4.67517654 2.54429843 1.21102726 0.48772601 0.15996339 
+The value of at state time = 1.500000 is 20.27958825 14.18652208 9.39365148 5.71701249 3.07175858 1.38553229 0.49339033 0.12793143 0.02122405 0.00167743 0.00000000 
+The value of at state time = 2.700000 is 66.05705718 50.32328563 37.85198001 27.96665382 20.13109298 13.92026975 8.99728771 5.09510740 2.14584853 0.46099915 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 
+
+
+ for European put option
+The value of at state time = 0.000000 is 1.48228543 
+The value of at state time = 0.300000 is 0.82357237 1.46298877 2.28766577 
+The value of at state time = 0.750000 is 0.20620200 0.51471205 1.05821226 1.84477543 2.80175167 3.80585369 
+The value of at state time = 1.500000 is 0.00052210 0.00748449 0.04977501 0.20570547 0.59832106 1.32004884 2.33656120 3.48398885 4.57646441 5.50744495 6.25919873 
+The value of at state time = 2.700000 is 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.14378739 0.91062768 2.39294970 3.93331477 5.15427845 6.12207000 6.88918577 7.49723675 7.97920571 8.36123632 8.66405122 

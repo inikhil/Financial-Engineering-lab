@@ -1,0 +1,106 @@
+function[]=BSM_2()
+    clc;
+    BSM_call(1);
+    BSM_put(1);
+    BSM_call(2);
+    
+end
+function[]=BSM_call(a)
+    T=1;K=1;r=0.05;sigma=0.6;
+    t=[0:0.2:1];
+    s=[0:0.05:2];
+    if a==1
+        figure();
+        for i=1:length(t)
+             for j=1:length(s)
+               calls(j)=call(T,K,r,sigma,t(i),s(j));
+             end
+             graphical_call(calls,s,t(i),i);
+        end
+        legend('t=0','t=0.2','t=0.4','t=0.6','t=0.8','t=1')
+    end
+    if a==2
+        for i=1:length(t)
+             for j=1:length(s)
+               calls(i,j)=call(T,K,r,sigma,t(i),s(j));
+               m=calls(i,j);
+               puts(i,j)=put(T,K,r,sigma,t(i),s(j),m);
+             end
+        end
+        graphical_call3d(calls,s,t);
+        graphical_put3d(puts,s,t);
+    end
+end
+
+function[]=BSM_put(a)
+    T=1;K=1;r=0.05;sigma=0.6;
+    t=[0:0.2:1];
+    s=[0:0.05:2];
+    if a==1
+         figure();
+         for i=1:length(t)
+             for j=1:length(s)
+                 m=call(T,K,r,sigma,t(i),s(j));
+                 puts(j)=put(T,K,r,sigma,t(i),s(j),m);
+             end
+            graphical_put(puts,s,t(i),i);
+         end
+        legend('t=0','t=0.2','t=0.4','t=0.6','t=0.8','t=1')
+    end
+end
+
+function[root]=call(T,K,r,sigma,t,s)
+    d1=1/(sigma*sqrt(T-t))*(log(s/K)+(r+0.5*sigma*sigma)*(T-t));
+    d2=1/(sigma*sqrt(T-t))*(log(s/K)+(r-0.5*sigma*sigma)*(T-t));
+    root=normcdf(d1)*s-normcdf(d2)*K*exp(-r*(T-t));
+    
+end
+
+function[root]=put(T,K,r,sigma,t,s,m)
+    root=K*exp(-r*(T-t))-s+m;
+end
+
+function[]=graphical_put(put,s,t,i)
+    xx=['b','g','r','k','c','m'];
+    plot(put,s,xx(i));
+    grid on
+    title1=['Plot of put option by varying s'];
+    title(sprintf('%s',title1));
+    xlabel('s');ylabel('Price of put option');
+    saveas(gcf,title1, 'png');
+    hold all
+end
+
+function[]=graphical_call3d(call,s,t)
+    figure();
+    stem3(s,t,call);
+    grid on
+    title1=['Plot of call option by varying s and 3d plotting' ];
+    title(sprintf('%s',title1));
+    xlabel('s');ylabel('t');zlabel('Plot of call option');
+    saveas(gcf,title1, 'png');
+end
+
+
+function[]=graphical_put3d(put,s,t)
+    figure();
+    stem3(s,t,put)
+    grid on
+    title1=['Plot of put option by varying s and 3d plotting' ];
+    title(sprintf('%s',title1));
+    xlabel('s');zlabel('Price of put option');ylabel('t');
+    saveas(gcf,title1, 'png');
+end
+
+function[]=graphical_call(call,s,t,i)
+    %figure();
+    xx=['b','g','r','k','c','m'];
+    plot(call,s,xx(i));
+    grid on
+    title1=['Plot of call option by varying s' ];
+    title(sprintf('%s',title1));
+    xlabel('s');ylabel('Price of call option');
+    saveas(gcf,title1, 'png');
+    hold all
+end
+    
